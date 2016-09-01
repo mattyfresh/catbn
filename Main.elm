@@ -3,10 +3,17 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.App exposing (beginnerProgram)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 
 
 type alias Model =
-    { mainTitle : String }
+    { bandPrefix : String
+    , theBandName : String
+    }
+
+
+type Msg
+    = ChangeBandName String
 
 
 
@@ -15,7 +22,9 @@ type alias Model =
 
 model : Model
 model =
-    { mainTitle = "Carter and the Bad News" }
+    { bandPrefix = "Carter and the "
+    , theBandName = "Bad News."
+    }
 
 
 imageStyles : List ( String, String )
@@ -32,29 +41,48 @@ imageStyles =
 -- simple main view
 
 
-view : Model -> Html a
+view : Model -> Html Msg
 view model =
     div [ class "main__container" ]
-        [ h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; padding: 20px;" ]
-            [ text model.mainTitle ]
-        , img [ id "main-image", src "images/run.gif", style imageStyles ] []
+        [ h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 20px;" ]
+            [ text (model.bandPrefix ++ model.theBandName) ]
+        , h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Tunes coming soon!" ]
+        , img
+            [ id "main-image"
+            , src "images/run.gif"
+            , style imageStyles
+            ]
+            []
+        , input
+            [ placeholder "Change our band name yah dude!"
+            , onInput ChangeBandName
+            , attribute "style" "display: block; height: 34px; font-size: 16px; width: 50%;max-width: 500px; min-width: 300px; margin: 20px auto 0; font-family: monospace;"
+            ]
+            []
         , div [ style [ ( "text-align", "center" ) ] ]
             -- notice the inline styles are perfectly ok as well, via attribute "thing" "string of selectors, attrs"
-            [ a [ href "mailto:matthewpadich@gmail.com?subject=Carter and the Bad News Info", attribute "style" "font-family: monospace; font-size: 16px; color: black; display: block; margin-top: 60px;" ]
+            [ a
+                [ href "mailto:matthewpadich@gmail.com?subject=Carter and the Bad News Info"
+                , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin-top: 60px; padding: 10px;"
+                ]
                 [ text "Email Us!" ]
             ]
         ]
 
 
 
--- placeholder update func for now
+-- update the band name
 
 
-update : a -> Model -> Model
-update action model =
+update : Msg -> Model -> Model
+update action updatedModel =
     case action of
-        _ ->
-            model
+        ChangeBandName newTitle ->
+            if newTitle == "" then
+                -- return the original model
+                model
+            else
+                { updatedModel | theBandName = newTitle }
 
 
 

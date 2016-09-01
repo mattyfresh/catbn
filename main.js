@@ -7796,11 +7796,107 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _user$project$Main$update = F2(
-	function (action, model) {
-		var _p0 = action;
-		return model;
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode_ops[':='], 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	_elm_lang$core$Native_List.fromArray(
+		['target', 'checked']),
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	_elm_lang$core$Native_List.fromArray(
+		['target', 'value']),
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
 	});
+
 var _user$project$Main$imageStyles = _elm_lang$core$Native_List.fromArray(
 	[
 		{ctor: '_Tuple2', _0: 'border', _1: 'solid black 4px'},
@@ -7809,6 +7905,22 @@ var _user$project$Main$imageStyles = _elm_lang$core$Native_List.fromArray(
 		{ctor: '_Tuple2', _0: 'max-width', _1: '660px'},
 		{ctor: '_Tuple2', _0: 'width', _1: '90%'}
 	]);
+var _user$project$Main$model = {bandPrefix: 'Carter and the ', theBandName: 'Bad News.'};
+var _user$project$Main$update = F2(
+	function (action, updatedModel) {
+		var _p0 = action;
+		var _p1 = _p0._0;
+		return _elm_lang$core$Native_Utils.eq(_p1, '') ? _user$project$Main$model : _elm_lang$core$Native_Utils.update(
+			updatedModel,
+			{theBandName: _p1});
+	});
+var _user$project$Main$Model = F2(
+	function (a, b) {
+		return {bandPrefix: a, theBandName: b};
+	});
+var _user$project$Main$ChangeBandName = function (a) {
+	return {ctor: 'ChangeBandName', _0: a};
+};
 var _user$project$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -7822,11 +7934,22 @@ var _user$project$Main$view = function (model) {
 				_elm_lang$html$Html$h1,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; padding: 20px;')
+						A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 20px;')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text(model.mainTitle)
+						_elm_lang$html$Html$text(
+						A2(_elm_lang$core$Basics_ops['++'], model.bandPrefix, model.theBandName))
+					])),
+				A2(
+				_elm_lang$html$Html$h2,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Tunes coming soon!')
 					])),
 				A2(
 				_elm_lang$html$Html$img,
@@ -7835,6 +7958,16 @@ var _user$project$Main$view = function (model) {
 						_elm_lang$html$Html_Attributes$id('main-image'),
 						_elm_lang$html$Html_Attributes$src('images/run.gif'),
 						_elm_lang$html$Html_Attributes$style(_user$project$Main$imageStyles)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				A2(
+				_elm_lang$html$Html$input,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$placeholder('Change our band name yah dude!'),
+						_elm_lang$html$Html_Events$onInput(_user$project$Main$ChangeBandName),
+						A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'display: block; height: 34px; font-size: 16px; width: 50%;max-width: 500px; min-width: 300px; margin: 20px auto 0; font-family: monospace;')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[])),
@@ -7855,7 +7988,7 @@ var _user$project$Main$view = function (model) {
 						_elm_lang$core$Native_List.fromArray(
 							[
 								_elm_lang$html$Html_Attributes$href('mailto:matthewpadich@gmail.com?subject=Carter and the Bad News Info'),
-								A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'font-family: monospace; font-size: 16px; color: black; display: block; margin-top: 60px;')
+								A2(_elm_lang$html$Html_Attributes$attribute, 'style', 'font-family: monospace; font-size: 16px; color: black; display: inline-block; margin-top: 60px; padding: 10px;')
 							]),
 						_elm_lang$core$Native_List.fromArray(
 							[
@@ -7864,13 +7997,9 @@ var _user$project$Main$view = function (model) {
 					]))
 			]));
 };
-var _user$project$Main$model = {mainTitle: 'Carter and the Bad News'};
 var _user$project$Main$main = {
 	main: _elm_lang$html$Html_App$beginnerProgram(
 		{model: _user$project$Main$model, view: _user$project$Main$view, update: _user$project$Main$update})
-};
-var _user$project$Main$Model = function (a) {
-	return {mainTitle: a};
 };
 
 var Elm = {};
