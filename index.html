@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Carter and The Bad News</title>
+		<style>
+			#main-image:hover,
+			#main-image:active {
+				-webkit-filter: invert(100%);
+				filter: invert(100%);
+				transform: rotateX(180deg);
+			}
+		</style>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		<div id="catbn-container"></div>
+		<script>
+			var catbn = document.getElementById('catbn-container');
+			var app = Elm.Main.embed(catbn);
+		</script>
+	</body>
+</html>
