@@ -14,4 +14,9 @@ fswatch Main.elm | xargs -n1 -I{} elm-make --output main.js {}
 ```
 
 It takes in an elm file using `fswatch`, which you can find via your preferred package manager
-(I used `homebrew`), and then compiles a JS file for you to include on your page
+(I used `homebrew`), and then compiles a JS file for you to include on your page.
+@TODO Install `Gulp` or maybe `webpack` to handle all of our compiling/dev needs.
+
+# Check Out The site
+
+http://carterandthebadnews.com
