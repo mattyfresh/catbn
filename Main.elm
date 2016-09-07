@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.App exposing (beginnerProgram)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import About exposing (bandMembers)
+import About exposing (BandMember, bandMembers)
 
 
 type alias Model =
@@ -77,7 +77,7 @@ homePage model =
 -- About page layout
 
 
-renderBios : About.BandMember -> Html Msg
+renderBios : BandMember -> Html Msg
 renderBios bio =
     ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0;" ]
         [ li [ attribute "style" "display: block;" ] [ text bio.name ]
@@ -105,7 +105,7 @@ view model =
             [ a [ onClick ToHomePage, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
             , a [ onClick ToAboutPage, attribute "style" "padding: 10px; cursor: pointer; margin-left: 10px; font-family: sans-serif;" ] [ text "About" ]
             ]
-        , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 20px;" ]
+        , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
             [ text (model.bandPrefix ++ model.theBandName) ]
         , if model.isHome == True then
             homePage model
