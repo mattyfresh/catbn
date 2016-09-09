@@ -28,7 +28,7 @@ carter : BandMember
 carter =
     { name = "Carter Z"
     , imageUrl = "images/carter.jpg"
-    , quote = "Grew up in a Morman neighborhood, moved to NYC, and now I can get you discounts on sunglasses.  HMU."
+    , quote = "Lover of all things peanut butter, one day dreams of becoming Buffy the vampire slayer."
     }
 
 
