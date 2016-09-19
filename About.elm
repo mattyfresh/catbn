@@ -20,7 +20,7 @@ matthew : BandMember
 matthew =
     { name = "Matty Fresh"
     , imageUrl = "images/matthew.jpg"
-    , quote = "I once tried to eat a triple cheese burger whilst high on LSD."
+    , quote = "I may say no the first time, but just ask me two more times, I'll come around!"
     }
 
 

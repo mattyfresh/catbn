@@ -38,7 +38,7 @@ imageStyles =
     , ( "display", "block" )
     , ( "margin", "auto" )
     , ( "max-width", "660px" )
-    , ( "width", "90%" )
+    , ( "width", "100%" )
     ]
 
 
@@ -66,7 +66,7 @@ homePage model =
             -- notice the inline styles are perfectly ok as well, via attribute "thing" "string of selectors, attrs"
             [ a
                 [ href ("mailto:matthewpadich@gmail.com?subject=Carter and the " ++ model.theBandName)
-                , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin-top: 60px; padding: 10px;"
+                , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin: 60px 0 30px; padding: 10px;"
                 ]
                 [ text "Email Us!" ]
             ]
@@ -79,10 +79,10 @@ homePage model =
 
 renderBios : BandMember -> Html Msg
 renderBios bio =
-    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0;" ]
-        [ li [ attribute "style" "display: block;" ] [ text bio.name ]
+    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0; width: 90%; margin: auto;" ]
+        [ li [ attribute "style" "display: block;", class "bio__name" ] [ text bio.name ]
         , li [] [ img [ src bio.imageUrl, style imageStyles ] [] ]
-        , li [] [ text bio.quote ]
+        , li [ class "bio__quote" ] [ text bio.quote ]
         ]
 
 
@@ -103,7 +103,7 @@ view model =
     div [ class "main__container" ]
         [ nav [ class "main__container-nav" ]
             [ a [ onClick ToHomePage, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
-            , a [ onClick ToAboutPage, attribute "style" "padding: 10px; cursor: pointer; margin-left: 10px; font-family: sans-serif;" ] [ text "About" ]
+            , a [ onClick ToAboutPage, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
             ]
         , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
             [ text (model.bandPrefix ++ model.theBandName) ]
