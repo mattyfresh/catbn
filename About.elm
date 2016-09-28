@@ -12,7 +12,7 @@ tony : BandMember
 tony =
     { name = "Tony Derbz"
     , imageUrl = "images/tony.jpg"
-    , quote = "Spawned from beer, metal on metal action, butts and a love for everything produced out of self loathing. The Derbster was born. Ohh yeah he also plays bass and loves puppies."
+    , quote = "Spawned from beer, metal on metal action, butts, and a love for everything produced out of self loathing. The Derbster was born. Ohh yeah he also plays bass and loves puppies."
     }
 
 

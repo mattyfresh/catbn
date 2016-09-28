@@ -7,14 +7,15 @@ run elm-make
 have your mind blown
 ```
 
-This command is nifty for recompiling your Elm code on save:
+Run this command from the root project dir to recompile your Elm code on save:
 
 ```
-fswatch *.elm | xargs -n1 -I{} elm-make --output main.js Main.elm
+./bin/watch
 ```
 
 It takes in an elm file using `fswatch`, which you can find via your preferred package manager
 (I used `homebrew`), and then compiles a JS file for you to include on your page.
+
 @TODO Install `Gulp` or maybe `webpack` to handle all of our compiling/dev needs.
 
 # Check Out The site

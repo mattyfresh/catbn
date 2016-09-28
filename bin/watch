@@ -1,0 +1,3 @@
+# Watch all elm files in root dir;
+# if any of them change rebuild main.js from the Main.elm file
+fswatch *.elm | xargs -n1 -I{} elm-make --output main.js Main.elm
