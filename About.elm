@@ -20,7 +20,7 @@ matthew : BandMember
 matthew =
     { name = "Matty Fresh"
     , imageUrl = "images/matthew.jpg"
-    , quote = "I may say no the first time, but just ask me two more times, I'll come around!"
+    , quote = "Sometimes I may say \"no\", but just ask me two more times, I'll come around!"
     }
 
 
@@ -28,7 +28,7 @@ carter : BandMember
 carter =
     { name = "Carter Z"
     , imageUrl = "images/carter.jpg"
-    , quote = "Lover of all things peanut butter, one day dreams of becoming Buffy the vampire slayer."
+    , quote = "Lover of all things peanut butter, one day I dream of becoming Buffy the vampire slayer."
     }
 
 

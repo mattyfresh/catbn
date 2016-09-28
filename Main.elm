@@ -63,9 +63,8 @@ homePage model =
             ]
             []
         , div [ style [ ( "text-align", "center" ) ] ]
-            -- notice the inline styles are perfectly ok as well, via attribute "thing" "string of selectors, attrs"
             [ a
-                [ href ("mailto:matthewpadich@gmail.com?subject=Carter and the " ++ model.theBandName)
+                [ href ("mailto:matthew.padich@gmail.com?subject=Carter and the " ++ model.theBandName)
                 , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin: 60px 0 30px; padding: 10px;"
                 ]
                 [ text "Email Us!" ]

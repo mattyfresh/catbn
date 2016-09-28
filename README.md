@@ -10,7 +10,7 @@ have your mind blown
 This command is nifty for recompiling your Elm code on save:
 
 ```
-fswatch Main.elm | xargs -n1 -I{} elm-make --output main.js {}
+fswatch *.elm | xargs -n1 -I{} elm-make --output main.js Main.elm
 ```
 
 It takes in an elm file using `fswatch`, which you can find via your preferred package manager
