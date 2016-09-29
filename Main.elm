@@ -1,17 +1,13 @@
 module Main exposing (..)
 
 import Html exposing (..)
+import Dict exposing (Dict)
 import Html.App exposing (beginnerProgram)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import About exposing (BandMember, bandMembers)
-
-
-type alias Model =
-    { bandPrefix : String
-    , theBandName : String
-    , isHome : Bool
-    }
+import Models exposing (..)
+import Routes exposing (..)
 
 
 type Msg
@@ -26,7 +22,12 @@ type Msg
 
 model : Model
 model =
-    { bandPrefix = "Carter and the "
+    { address =
+        { path = [ "" ]
+        , query = Dict.empty
+        }
+    , route = HomeRoute
+    , bandPrefix = "Carter and the "
     , theBandName = "Bad News."
     , isHome = True
     }
