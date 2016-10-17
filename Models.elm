@@ -9,5 +9,4 @@ type alias Model =
     , theBandName : String
     , route : Route
     , address : Address
-    , isHome : Bool
     }
